@@ -19,13 +19,21 @@ Email Notification - Mailgun
 ### Steps used to deploy
 
 step 1 : pip install -r requirements.txt 
+
 step 2 : python manage.py runserver 
+
 step 3 : zappa init
+
 step 4 : zappa deploy dev
+
 step 5 : python manage.py collectstatic --noinput
+
 step 6 : python manage.py makemigrations
+
 step 7 : zappa update dev
+
 step 8 : zappa manage dev migrate
+
 step 9 : zappa manage <stage> create_admin_user
   
 Follow the below links to get more information.
