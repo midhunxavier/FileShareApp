@@ -1,7 +1,10 @@
-# FileShareApp
-Filesharing system using django on aws lambda
+## FileShareApp - Filesharing system using django on aws lambda
+
+# Description
 
 FileShareApp is used to share the files across multiple users. Uploader can login and share the file to another user. Downloader will get notification via Email and user can download the file.
+
+# Details
 
 Framework - Django
 
