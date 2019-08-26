@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>History</h1>
+{% if files %}
+
+<div class="table-container">
+    <table class="table is-hoverable">
+        <thead>
+            <tr>
+                <th>File name</th>
+                <th>Description</th>
+                <th>Downloader</th>
+                <th>Uploader</th>
+                <th>File</th>
+               
+            </tr>
+        </thead>
+        <tbody>
+            {% for  file in files %}
+
+            <tr>
+                <td>
+                   
+                        {{ file.file_name }}
+                    
+                </td>
+                <td>
+                        {{ file.file_desc }}
+
+                </td>
+               
+                <td >
+                        {{ file.file_downloader }} 
+
+                </td>
+
+                <td >
+                        {{ file.file_uploader }} 
+
+                </td>
+
+                <td >
+
+                        <a href="{% url 'download' file.id %}" target="_blank" class="button">Download</a> 
+
+                </td>
+
+
+
+
+            </tr>
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+
+
+{% else %}
+
+No files
+
+{% endif %}
+
+
+{% endblock %}

@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if error %}
+
+{{ error }}
+
+{% endif %}
+
+<form action="{% url 'upload' %}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+<div class="field">
+    <label class="label">Downloader Username</label>
+    <div class="control">
+        <input class="input" type="text" id="file_downloader" name="file_downloader" required>
+    </div>
+</div>
+
+<div class="field">
+        <label class="label">File Name</label>
+        <div class="control">
+            <input class="input" type="text" id="file_name" name="file_name" required>
+        </div>
+    </div>
+<div class="field">
+    <label class="label">Description</label>
+    <div class="control">
+        <textarea class="textarea" required id="file_desc" name="file_desc"></textarea>
+    </div>
+</div>
+<div class="file">
+    <label class="file-label">
+        <input class="file-input" type="file" id="file" name="file_file" required>
+        <span class="file-cta">
+            <span class="file-icon">
+                <i class="fas fa-upload"></i>
+            </span>
+            <span class="file-label" id="file-label">
+                Choose a file…
+            </span>
+        </span>
+    </label>
+</div>
+<div class="field">
+    <div class="control">
+        <button class="button is-link" id="upload" type='submit'>Upload</button>
+    </div>
+</div>
+</form>
+
+<script>
+
+
+file =document.querySelector('#file') ;
+file.onchange = function(){
+    if(file.files.length > 0)
+              {
+        $("#file-label").html(file.files[0].name);
+              }
+  else
+  {
+        $("#file-label").html('Choose a file…');
+  }
+}
+
+</script>
+{% endblock %}

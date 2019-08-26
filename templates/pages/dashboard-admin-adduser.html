@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form action="{% url 'adduser' %}" method="POST">
+    {% csrf_token %}
+<div class="field">
+    <label class="label">Username</label>
+    <div class="control">
+        <input class="input" type="text" id="username" name="username" required>
+    </div>
+</div>
+
+<div class="field">
+        <label class="label">Email</label>
+        <div class="control">
+            <input class="input" type="text" id="email" name="email" required>
+        </div>
+    </div>
+    <div class="field">
+        <label class="label">Password</label>
+        <div class="control">
+            <input class="input" type="text" id="password" name="password" required>
+        </div>
+    </div>
+    
+<div class="control">
+    <label class="radio">
+      <input type="radio" name="role" value="uploader">
+      File Uploader
+    </label>
+    <label class="radio">
+      <input type="radio" name="role" checked value="downloader">
+      File Downloader
+    </label>
+  </div>
+<div class="field">
+    <div class="control">
+        <button class="button is-link" id="upload" type='submit'>Submit</button>
+    </div>
+</div>
+</form>
+
+{% endblock %}

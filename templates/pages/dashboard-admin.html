@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<a href="{% url 'adduser' %}" class="button">Add user</a>
+<br/>
+
+<h1>Users:</h1>
+{% if users %}
+
+
+{% for  user in users %}
+
+{{ user.username }}
+<br/>
+
+{% endfor %}
+
+{% else %}
+
+no users.
+
+{% endif %}
+
+{% endblock %}
